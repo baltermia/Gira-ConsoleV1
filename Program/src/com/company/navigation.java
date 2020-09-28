@@ -4,6 +4,4 @@ import java.io.InputStreamReader;
 
 public class navigation {
     public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-
 }
