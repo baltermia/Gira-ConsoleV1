@@ -4,8 +4,6 @@ import java.io.InputStreamReader;
 
 public class navigation {
     public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-<<<<<<< HEAD
-=======
 
     // Create Account:
     //  void createAccount() throws IOException {
@@ -55,5 +53,4 @@ public class navigation {
     //                "\nIhre Account-ID ist: " + account.id +
     //                "\n-------------------------------");
     //    }
->>>>>>> 27b9fee93e89e23769832a77cabecba282663cf7
 }
