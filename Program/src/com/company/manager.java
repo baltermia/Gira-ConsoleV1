@@ -3,5 +3,5 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class manager {
-    public static List<employee> accounts = new ArrayList<>();
+    public static List<employee> employeeList = new ArrayList<>();
 }
