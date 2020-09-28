@@ -1,8 +1,8 @@
 package com.company;
 
-public class Main {
+public class gira {
 
     public static void main(String[] args) {
-        System.out.println("Henlo WOreld? :D");
+        navigation navigation = new navigation();
     }
 }
