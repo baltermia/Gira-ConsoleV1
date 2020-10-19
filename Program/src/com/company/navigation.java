@@ -7,6 +7,16 @@ import java.io.InputStreamReader;
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+    //ToDo:
+    void addEmployee() throws IOException {
+
+    }
+
+    //ToDo:
+    void addGroup() throws IOException {
+
+    }
+
     // Create Account:
     void createAccount() throws IOException {
         System.out.println("Bitte geben Sie ihren Vor- und Nachnamen ein (keine zweiten Vornamen): ");
@@ -54,5 +64,9 @@ public class navigation {
                 "\nIhre Nutzername lautet: " + account.username +
                 "\nIhre Account-ID ist: " + account.id +
                 "\n-------------------------------");
+    }
+    // View Ticket:
+    void viewTicket() throws IOException {
+
     }
 }
