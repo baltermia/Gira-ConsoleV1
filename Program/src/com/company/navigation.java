@@ -7,6 +7,14 @@ import java.io.InputStreamReader;
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+    public employee loginAsEmployee() {
+        return null;
+    }
+
+    public admin loginAsAdmin() {
+        return null;
+    }
+
     //ToDo:
     void addEmployee() throws IOException {
 
@@ -65,6 +73,12 @@ public class navigation {
                 "\nIhre Account-ID ist: " + account.id +
                 "\n-------------------------------");
     }
+
+    // Create Ticket:
+    void createTicket() throws IOException {
+
+    }
+
     // View Ticket:
     void viewTicket() throws IOException {
 
