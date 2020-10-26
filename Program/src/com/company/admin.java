@@ -5,7 +5,7 @@ import java.util.List;
 public class admin {
     public static List<employee> adminList = new ArrayList<>();
 
-    public static employee createAccount(String name, String password) {
+    public static employee createAccount(String name, String password, boolean isAdmin) {
         String username = (name.substring(0, 3) + name.split(" ")[1].substring(0, 3)).toLowerCase();
 
         while (true) {
