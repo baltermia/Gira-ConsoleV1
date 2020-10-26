@@ -76,7 +76,15 @@ public class navigation {
 
     // Create Ticket:
     void createTicket() throws IOException {
+        System.out.println("Wie soll Ihr Ticket heissen?");
+        String name = reader.readLine();
 
+        System.out.println("Was soll in die Ticket-Beschreibung geschrieben werden?");
+        String desc = reader.readLine();
+
+        System.out.println("Was für eine Priorität hat das Ticket?");
+        System.out.println("- 1: Low\n- 2: Medium\n- 3: High");
+        String priority = reader.readLine();
     }
 
     // View Ticket:
