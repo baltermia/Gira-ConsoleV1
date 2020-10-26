@@ -48,4 +48,18 @@ public class admin {
 
         return username;
     }
+
+    public static admin getAdmin(String id_username) {
+        if (id_username.matches("[0-9]+")) {
+            for (int i = 0; i < adminList.size(); i++) {
+                if (Integer.toString(adminList.get(i).id).equals(id_username))
+                    return adminList.get(i);
+            }
+        } else {
+            for (int i = 0; i < adminList.size(); i++) {
+                if (adminList.get(i).username.equals(id_username)) return adminList.get(i);
+            }
+        }
+        return null;
+    }
 }

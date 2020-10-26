@@ -35,28 +35,49 @@ public class navigation {
         }
     }
 
-    public employee loginAsEmployee() {
-        return null;
+    public employee loginAsEmployee() throws IOException {
+        System.out.println("Sie wollen sich als normaler Benutzer anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
+        while (true) {
+            String input = reader.readLine();
+
+            if (input == "EXIT") {
+                return null;
+            }
+
+            employee account = employee.getEmployee(input);
+
+            if (account == null) {
+                System.out.println("Ihr Account wurde nicht gefunden. Probieren Sie es nochmals: ");
+                continue;
+            } else {
+                return account;
+            }
+        }
     }
 
-    public admin loginAsAdmin() {
-        return null;
+    public admin loginAsAdmin() throws IOException {
+        while (true) {
+            String input = reader.readLine();
+
+            if (input == "EXIT") {
+                return null;
+            }
+
+            admin account = admin.getAdmin(input);
+
+            if (account == null) {
+                System.out.println("Ihr Account wurde nicht gefunden. Probieren Sie es nochmals: ");
+                continue;
+            } else {
+                return account;
+            }
+        }
     }
 
     // Create Account:
-    void createAccount() throws IOException {
-        System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
-        System.out.println("- 1: Admin\n- 2: Employee");
-        boolean isAdmin = false;
-        int input = inputIndex(2);
-        switch(input) {
-            case 1:
-                isAdmin = true;
-            case 2:
-                isAdmin = false;
-        }
+    void createAccount(boolean isAdmin) throws IOException {
+        System.out.println("Bitte geben Sie Vor- und Nachnamen ein (keine zweiten Vornamen): ");
 
-        System.out.println("Bitte geben Sie ihren Vor- und Nachnamen ein (keine zweiten Vornamen): ");
         String name;
         String password;
 
@@ -128,10 +149,13 @@ public class navigation {
         switch(input) {
             case 1:
                 priority = "Low";
+                break;
             case 2:
                 priority = "Medium";
+                break;
             case 3:
                 priority = "High";
+                break;
         }
 
         System.out.println("Welcher Nutzer ist der Bearbeiter? (id/username)");

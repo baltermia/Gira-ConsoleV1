@@ -44,8 +44,8 @@ public class gira {
 
                     int inputNum = nav.inputIndex(3);
 
-                    if (inputNum == 1) nav.createTicket();
-                    else if (inputNum == 2) nav.viewTicket();
+                    if (inputNum == 1) nav.createAccount(false);
+                    else if (inputNum == 2) nav.createAccount(true);
                     else if (inputNum == 3) break;
                 }
             } else {
