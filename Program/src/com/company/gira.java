@@ -14,7 +14,7 @@ public class gira {
             String input = "";
             boolean active = false;
 
-            while (active) {
+            do {
                 if (active) System.out.println("Bitte geben Sie eine Zahl von 1-3 ein.");
                 input = nav.reader.readLine();
 
@@ -27,7 +27,7 @@ public class gira {
                     default:
                         active = true;
                 }
-            }
+            } while (active);
 
             int inputNum = Integer.parseInt(input);
 
