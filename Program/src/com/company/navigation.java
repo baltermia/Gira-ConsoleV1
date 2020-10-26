@@ -12,7 +12,6 @@ public class navigation {
         boolean hasPassed = false;
         String input;
         int inputNum;
-
         while (true) {
             if (hasPassed)
                 System.out.println("Bitte geben Sie eine Zahl von 1-" + end + " ein.");
@@ -20,6 +19,8 @@ public class navigation {
                 hasPassed = true;
 
             input = reader.readLine();
+            if (input.equals("EXIT"))
+                return -1;
 
             if (input.matches("[0-9]+")) {
                 inputNum = Integer.parseInt(input);

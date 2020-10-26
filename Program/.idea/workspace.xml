@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="93b6c714-d474-4cdd-b6cb-4b803c4c2d63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gira.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/navigation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +72,7 @@
       <workItem from="1603094481896" duration="6583000" />
       <workItem from="1603698901262" duration="8419000" />
       <workItem from="1603719984774" duration="2359000" />
+      <workItem from="1603728247085" duration="3031000" />
     </task>
     <servers />
   </component>
@@ -111,5 +113,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601277796807" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1603730815858">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603730815858" />
   </component>
 </project>
