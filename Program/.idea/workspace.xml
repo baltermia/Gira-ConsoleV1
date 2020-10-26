@@ -4,7 +4,6 @@
     <list default="true" id="93b6c714-d474-4cdd-b6cb-4b803c4c2d63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/gira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gira.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/navigation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +70,7 @@
       <updated>1601277497979</updated>
       <workItem from="1601277501451" duration="1902000" />
       <workItem from="1603094481896" duration="6583000" />
-      <workItem from="1603698901262" duration="4724000" />
+      <workItem from="1603698901262" duration="5867000" />
     </task>
     <servers />
   </component>

@@ -3,9 +3,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class admin {
-    public static List<employee> adminList = new ArrayList<>();
+    public static List<admin> adminList = new ArrayList<>();
 
-    public static employee createAccount(String name, String password, boolean isAdmin) {
+    int id;
+    String username;
+    String password;
+
+    admin(String username, String password) {
+        id = adminList.size();
+        this.username = username;
+        this.password = password;
+        adminList.add(this);
+    }
+
+    public static employee createEmployeeAccount(String name) {
+
+        return new employee(getNewUsername(name));
+    }
+
+    public static admin createAdminAccount(String name, String password) {
+        return new admin (getNewUsername(name), password);
+    }
+
+    private static String getNewUsername(String name) {
         String username = (name.substring(0, 3) + name.split(" ")[1].substring(0, 3)).toLowerCase();
 
         while (true) {
@@ -25,6 +45,7 @@ public class admin {
                 break;
             }
         }
-        return new employee(username);
+
+        return username;
     }
 }

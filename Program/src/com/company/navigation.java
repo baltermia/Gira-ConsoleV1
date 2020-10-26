@@ -46,6 +46,7 @@ public class navigation {
         System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
         System.out.println("- 1: Admin\n- 2: Employee\n- 3: Abbruch");
 
+
         System.out.println("Bitte geben Sie ihren Vor- und Nachnamen ein (keine zweiten Vornamen): ");
         String name;
         String password;
