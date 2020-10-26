@@ -137,7 +137,7 @@ public class navigation {
             else {
                 editor = employee.getEmployee(user);
             }
-            break;
+                break;
         }
 
         new ticket(name, desc, priority, null, editor);
