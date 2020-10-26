@@ -66,7 +66,7 @@ public class navigation {
         password = reader.readLine();
         if (password.equals("EXIT")) return;
 
-        employee account = employee.createAccount(name, password);
+        employee account = admin.createAccount(name, password);
 
         System.out.println("Account wurde erfolgreich erstellt." +
                 "\nIhre Nutzername lautet: " + account.username +
