@@ -4,25 +4,23 @@ public class employee {
     int id;
     String username;
     String password;
-    Boolean isAdmin;
 
-    employee(String username, String password, Boolean admin) {
-        id = manager.employeeList.size();
+    employee(String username, String password) {
+        id = admin.employeeList.size();
         this.username = username;
         this.password = password;
-        isAdmin = admin;
-        manager.employeeList.add(this);
+        admin.employeeList.add(this);
     }
 
     public static employee getEmployee(String id_username) {
         if (id_username.matches("[0-9]+")) {
-            for (int i = 0; i < manager.employeeList.size(); i++) {
-                if (Integer.toString(manager.employeeList.get(i).id).equals(id_username))
-                    return manager.employeeList.get(i);
+            for (int i = 0; i < admin.employeeList.size(); i++) {
+                if (Integer.toString(admin.employeeList.get(i).id).equals(id_username))
+                    return admin.employeeList.get(i);
             }
         } else {
-            for (int i = 0; i < manager.employeeList.size(); i++) {
-                if (manager.employeeList.get(i).username.equals(id_username)) return manager.employeeList.get(i);
+            for (int i = 0; i < admin.employeeList.size(); i++) {
+                if (admin.employeeList.get(i).username.equals(id_username)) return admin.employeeList.get(i);
             }
         }
         return null;
@@ -48,6 +46,6 @@ public class employee {
                 break;
             }
         }
-        return new employee(username, password, false);
+        return new employee(username, password);
     }
 }
