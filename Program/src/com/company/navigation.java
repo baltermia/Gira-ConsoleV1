@@ -45,8 +45,14 @@ public class navigation {
     // Create Account:
     void createAccount() throws IOException {
         System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
-        System.out.println("- 1: Admin\n- 2: Employee\n- 3: Abbruch");
-
+        System.out.println("- 1: Admin\n- 2: Employee");
+        boolean isAdmin = false;
+        switch(inputIndex(reader.readLine(), 1, 3)) {
+            case 1:
+                isAdmin = true;
+            case 2:
+                isAdmin = false;
+        }
 
         System.out.println("Bitte geben Sie ihren Vor- und Nachnamen ein (keine zweiten Vornamen): ");
         String name;
@@ -82,17 +88,27 @@ public class navigation {
             break;
         }
 
-        System.out.println("Bitte geben Sie ein Passwort ein: ");
+        if (isAdmin) {
+            System.out.println("Bitte geben Sie ein Passwort ein: ");
 
-        password = reader.readLine();
-        if (password.equals("EXIT")) return;
+            password = reader.readLine();
+            if (password.equals("EXIT")) return;
 
-        employee account = admin.createAccount(name, password, false);
+            admin account = admin.createAdminAccount(name, password);
 
-        System.out.println("Account wurde erfolgreich erstellt." +
-                "\nIhre Nutzername lautet: " + account.username +
-                "\nIhre Account-ID ist: " + account.id +
-                "\n-------------------------------");
+            System.out.println("Account wurde erfolgreich erstellt." +
+                    "\nIhre Nutzername lautet: " + account.username +
+                    "\nIhre Account-ID ist: " + account.id +
+                    "\n-------------------------------");
+        }
+        else {
+            employee account = admin.createEmployeeAccount(name);
+
+            System.out.println("Account wurde erfolgreich erstellt." +
+                    "\nIhre Nutzername lautet: " + account.username +
+                    "\nIhre Account-ID ist: " + account.id +
+                    "\n-------------------------------");
+        }
     }
 
     // Create Ticket:
