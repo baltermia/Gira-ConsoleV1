@@ -18,18 +18,39 @@ public class admin {
 
     public static employee createEmployeeAccount(String name) {
 
-        return new employee(getNewUsername(name));
+        return new employee(getNewUsername(name, false));
     }
 
     public static admin createAdminAccount(String name, String password) {
-        return new admin (getNewUsername(name), password);
+        return new admin (getNewUsername(name, true), password);
     }
 
-    private static String getNewUsername(String name) {
+    public static boolean deleteEmployeeAccount(employee acc) {
+        for (int i = 0; i < employee.employeeList.size(); i++) {
+            if (employee.employeeList.get(i).equals(acc))
+            {
+                employee.employeeList.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean deleteAdminAccount(admin acc) {
+        for (int i = 0; i < employee.employeeList.size(); i++) {
+            if (admin.adminList.get(i).equals(acc))
+            {
+                admin.adminList.remove(i);
+                return true;
+            }
+        }
+        return false;    }
+
+    private static String getNewUsername(String name, boolean isAdmin) {
         String username = (name.substring(0, 3) + name.split(" ")[1].substring(0, 3)).toLowerCase();
 
         while (true) {
-            if (employee.getEmployee(username) != null) {
+            if ((isAdmin == false ? employee.getEmployee(username) : getAdmin(username)) != null) {
                 if (username.length() > 6) {
                     int strLenth = username.length();
                     while (strLenth > 0 && Character.isDigit(username.charAt(strLenth - 1))) {

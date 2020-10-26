@@ -40,7 +40,7 @@ public class navigation {
         while (true) {
             String input = reader.readLine();
 
-            if (input == "EXIT") {
+            if (input.equals("EXIT")) {
                 return null;
             }
 
@@ -50,14 +50,19 @@ public class navigation {
                 System.out.println("Ihr Account wurde nicht gefunden. Probieren Sie es nochmals: ");
                 continue;
             } else {
+                System.out.println("Ihr Account wurde gefunden. Sie sind nun angemeldet.");
                 return account;
             }
         }
     }
 
     public admin loginAsAdmin() throws IOException {
+        System.out.println("Sie wollen sich als Admin anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
         while (true) {
             String input = reader.readLine();
+
+            if (input.equals("EXIT"))
+                return null;
 
             if (input == "EXIT") {
                 return null;
@@ -68,8 +73,21 @@ public class navigation {
             if (account == null) {
                 System.out.println("Ihr Account wurde nicht gefunden. Probieren Sie es nochmals: ");
                 continue;
-            } else {
-                return account;
+            }
+
+            System.out.println("Ihr Account wurde gefunden. Bitte geben Sie das Passwort ein:");
+            while (true) {
+                String password = reader.readLine();
+                if (password.equals("EXIT"))
+                    return null;
+
+                if (account.password.equals(password)) {
+                    System.out.println("Das eingegebene Passwort ist korrekt. Sie sind nun angemeldet.");
+                    return account;
+                } else {
+                    System.out.println("Das eingegebene Passwort ist falsch. Versuchen Sie es nochmals:");
+                    continue;
+                }
             }
         }
     }
@@ -134,7 +152,44 @@ public class navigation {
         }
     }
 
-    // Create Ticket:
+    void deleteAccount(boolean isAdmin) throws IOException {
+        System.out.println("Bitte geben Sie den Benutzernamen oder die Benutzer-ID vom Account an, welchen Sie löschen wollen: ");
+
+        while (true)
+        {
+            String input = reader.readLine();
+
+            if (isAdmin) {
+                admin acc = admin.getAdmin(input);
+                if (acc == null) {
+                    System.out.println("Der eingegebene Account wurde nicht gefunen. Bitte probieren Sie es nochmals:");
+                    continue;
+                }
+
+                if (admin.deleteAdminAccount(acc)) {
+                    System.out.print("Der Account wurde erfolgreich gelöscht.");
+                } else {
+                    System.out.println("Beim Löschen vom Account ist ein fehler aufgetreten. Abbruch.");
+                }
+                return;
+            } else {
+                employee acc = employee.getEmployee(input);
+
+                if (employee.getEmployee(input) == null) {
+                    System.out.println("Der eingegebene Account wurde nicht gefunen. Bitte probieren Sie es nochmals:");
+                    continue;
+                }
+
+                if (admin.deleteEmployeeAccount(acc)) {
+                    System.out.print("Der Account wurde erfolgreich gelöscht.");
+                } else {
+                    System.out.println("Beim Löschen vom Account ist ein fehler aufgetreten. Abbruch.");
+                }
+                return;
+            }
+        }
+    }
+
     void createTicket() throws IOException {
         System.out.println("Wie soll Ihr Ticket heissen?");
         String name = reader.readLine();
