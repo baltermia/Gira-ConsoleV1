@@ -10,10 +10,10 @@ public class ticket {
     int id;
     String name;
     String description;
-    int priority;
+    String priority;
 
 
-    ticket(String name, String description, int priority) {
+    ticket(String name, String description, String priority) {
         id = ticketList.size();
         this.name = name;
         this.description = description;
