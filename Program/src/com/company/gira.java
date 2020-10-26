@@ -8,9 +8,10 @@ public class gira {
     public static admin adminAccount = null;
 
     public static void main(String[] args) throws IOException {
-        navigation nav = new navigation();
+        new admin("admin", "root");
 
-        boolean endProgram = false;
+        navigation nav = new navigation();
+        boolean endProgram = true;
 
         while (endProgram) {
             while (true) {
