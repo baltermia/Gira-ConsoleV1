@@ -3,6 +3,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.FileSystemLoopException;
 
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -104,7 +105,31 @@ public class navigation {
 
         System.out.println("Was für eine Priorität hat das Ticket?");
         System.out.println("- 1: Low\n- 2: Medium\n- 3: High");
-        String priority = reader.readLine();
+        String priority = "";
+        switch(inputIndex(reader.readLine(), 1, 3)) {
+            case 1:
+                priority = "Low";
+            case 2:
+                priority = "Medium";
+            case 3:
+                priority = "High";
+        }
+
+        System.out.println("Welcher Nutzer ist der Bearbeiter? (id/username)");
+        employee editor = null;
+        while (true) {
+            String user = reader.readLine();
+            if (employee.getEmployee(user) == null) {
+                System.out.println("Es wurde keine Nutzer mit den Angaben gefunden. Bitte probieren Sie es nochals:");
+                continue;
+            }
+            else {
+                editor = employee.getEmployee(user);
+            }
+            break;
+        }
+
+        new ticket(name, desc, priority, null, editor);
     }
 
     // View Ticket:
