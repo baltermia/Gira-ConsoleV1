@@ -37,11 +37,6 @@ public class navigation {
         return null;
     }
 
-    //ToDo:
-    public void addEmployee() throws IOException {
-
-    }
-
     // Create Account:
     void createAccount() throws IOException {
         System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
