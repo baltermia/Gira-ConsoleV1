@@ -42,7 +42,8 @@ public class navigation {
         System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
         System.out.println("- 1: Admin\n- 2: Employee");
         boolean isAdmin = false;
-        switch(inputIndex(reader.readLine(), 1, 3)) {
+        int input = inputIndex(reader.readLine(), 1, 2);
+        switch(input) {
             case 1:
                 isAdmin = true;
             case 2:
@@ -117,7 +118,8 @@ public class navigation {
         System.out.println("Was für eine Priorität hat das Ticket?");
         System.out.println("- 1: Low\n- 2: Medium\n- 3: High");
         String priority = "";
-        switch(inputIndex(reader.readLine(), 1, 3)) {
+        int input = inputIndex(reader.readLine(), 1, 3);
+        switch(input) {
             case 1:
                 priority = "Low";
             case 2:
