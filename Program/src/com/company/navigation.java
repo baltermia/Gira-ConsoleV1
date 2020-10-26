@@ -8,25 +8,30 @@ import java.nio.file.FileSystemLoopException;
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    int inputIndex(String input, int start, int end) throws IOException {
-        boolean active = false;
+    int inputIndex(int end) throws IOException {
+        boolean hasPassed = false;
+        String input;
+        int inputNum;
 
-        do {
-            if (active) System.out.println("Bitte geben Sie eine Zahl von " + start + "-" + end + " ein.");
+        while (true) {
+            if (hasPassed)
+                System.out.println("Bitte geben Sie eine Zahl von 1-" + end + " ein.");
+            else
+                hasPassed = true;
+
             input = reader.readLine();
 
-            switch (input) {
-                case "1":
-                case "2":
-                case "3":
-                    active = false;
-                    break;
-                default:
-                    active = true;
+            if (input.matches("[0-9]+")) {
+                inputNum = Integer.parseInt(input);
+            } else {
+                continue;
             }
-        } while (active);
 
-        return Integer.parseInt(input);
+            for (int i = 0; i < end; i++) {
+                if (inputNum == i)
+                    return inputNum;
+            }
+        }
     }
 
     public employee loginAsEmployee() {
@@ -42,7 +47,7 @@ public class navigation {
         System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
         System.out.println("- 1: Admin\n- 2: Employee");
         boolean isAdmin = false;
-        int input = inputIndex(reader.readLine(), 1, 2);
+        int input = inputIndex(2);
         switch(input) {
             case 1:
                 isAdmin = true;
@@ -118,7 +123,7 @@ public class navigation {
         System.out.println("Was für eine Priorität hat das Ticket?");
         System.out.println("- 1: Low\n- 2: Medium\n- 3: High");
         String priority = "";
-        int input = inputIndex(reader.readLine(), 1, 3);
+        int input = inputIndex(3);
         switch(input) {
             case 1:
                 priority = "Low";
@@ -129,7 +134,7 @@ public class navigation {
         }
 
         System.out.println("Welcher Nutzer ist der Bearbeiter? (id/username)");
-        employee editor = null;
+        employee editor;
         while (true) {
             String user = reader.readLine();
             if (employee.getEmployee(user) == null) {
