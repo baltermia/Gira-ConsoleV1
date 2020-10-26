@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+../../../../.DS_Store
+../../../../.idea/
+../../../../Documentation/.DS_Store
+../../../../Gira.iml
+../../../.DS_Store
+../../.DS_Store
+../.DS_Store
+../../../../out/
