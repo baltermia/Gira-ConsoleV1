@@ -7,6 +7,27 @@ import java.io.InputStreamReader;
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+    int inputIndex(String input, int start, int end) throws IOException {
+        boolean active = false;
+
+        do {
+            if (active) System.out.println("Bitte geben Sie eine Zahl von " + start + "-" + end + " ein.");
+            input = reader.readLine();
+
+            switch (input) {
+                case "1":
+                case "2":
+                case "3":
+                    active = false;
+                    break;
+                default:
+                    active = true;
+            }
+        } while (active);
+
+        return Integer.parseInt(input);
+    }
+
     public employee loginAsEmployee() {
         return null;
     }
@@ -16,17 +37,16 @@ public class navigation {
     }
 
     //ToDo:
-    void addEmployee() throws IOException {
-
-    }
-
-    //ToDo:
-    void addGroup() throws IOException {
+    public void addEmployee() throws IOException {
 
     }
 
     // Create Account:
     void createAccount() throws IOException {
+        System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
+        System.out.println("- 1: Admin\n- 2: Employee\n- 3: Abbruch");
+
+
         System.out.println("Bitte geben Sie ihren Vor- und Nachnamen ein (keine zweiten Vornamen): ");
         String name;
         String password;
@@ -66,7 +86,7 @@ public class navigation {
         password = reader.readLine();
         if (password.equals("EXIT")) return;
 
-        employee account = admin.createAccount(name, password);
+        employee account = admin.createAccount(name, password, false);
 
         System.out.println("Account wurde erfolgreich erstellt." +
                 "\nIhre Nutzername lautet: " + account.username +
