@@ -16,7 +16,7 @@ public class ticket {
     employee reporter;
 
 
-    ticket(String name, String description, String priority, employee reporter, employee editor) {
+    public ticket(String name, String description, String priority, employee reporter, employee editor) {
         id = ticketList.size();
         this.name = name;
         this.description = description;

@@ -9,7 +9,7 @@ public class admin {
     String username;
     String password;
 
-    admin(String username, String password) {
+    public admin(String username, String password) {
         id = adminList.size();
         this.username = username;
         this.password = password;

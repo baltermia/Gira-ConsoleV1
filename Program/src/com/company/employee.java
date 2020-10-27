@@ -9,7 +9,7 @@ public class employee {
     int id;
     String username;
 
-    employee(String username) {
+    public employee(String username) {
         id = employeeList.size();
         this.username = username;
         employeeList.add(this);
