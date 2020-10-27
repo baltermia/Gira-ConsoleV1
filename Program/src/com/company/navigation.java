@@ -132,6 +132,7 @@ public class navigation {
         employee editor = null;
         while (true) {
             String user = reader.readLine();
+            if (user.equals("EXIT")) return;
             if (employee.getEmployee(user) == null) {
                 System.out.println("Es wurde keine Nutzer mit den Angaben gefunden. Bitte probieren Sie es nochals:");
                 continue;
