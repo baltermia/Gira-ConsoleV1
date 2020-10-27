@@ -14,7 +14,7 @@ public class navigation {
         int inputNum;
         while (true) {
             if (hasPassed)
-                System.out.println("Bitte geben Sie eine Zahl von 1-" + end + " ein.");
+                System.out.println("Bitte geben Sie eine Zahl von 1-5 ein.");
             else
                 hasPassed = true;
 
