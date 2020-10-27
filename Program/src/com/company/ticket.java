@@ -26,4 +26,14 @@ public class ticket {
         this.editor = editor;
         ticketList.add(this);
     }
+
+    public static ticket getTicket(String id) {
+        if (id.matches("[0-9]+")) {
+            for (int i = 0; i < ticketList.size(); i++) {
+                if (Integer.toString(ticketList.get(i).id).equals(id))
+                    return ticketList.get(i);
+            }
+        }
+        return null;
+    }
 }

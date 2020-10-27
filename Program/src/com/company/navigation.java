@@ -8,49 +8,94 @@ import java.nio.file.FileSystemLoopException;
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    int inputIndex(String input, int start, int end) throws IOException {
-        boolean active = false;
+    int inputIndex(int end) throws IOException {
+        boolean hasPassed = false;
+        String input;
+        int inputNum;
+        while (true) {
+            if (hasPassed)
+                System.out.println("Bitte geben Sie eine Zahl von 1-" + end + " ein.");
+            else
+                hasPassed = true;
 
-        do {
-            if (active) System.out.println("Bitte geben Sie eine Zahl von " + start + "-" + end + " ein.");
             input = reader.readLine();
+            if (input.equals("EXIT"))
+                return -1;
 
-            switch (input) {
-                case "1":
-                case "2":
-                case "3":
-                    active = false;
-                    break;
-                default:
-                    active = true;
+            if (input.matches("[0-9]+")) {
+                inputNum = Integer.parseInt(input);
+            } else {
+                continue;
             }
-        } while (active);
 
-        return Integer.parseInt(input);
+            for (int i = 0; i < end; i++) {
+                if (inputNum == i)
+                    return inputNum;
+            }
+        }
     }
 
-    public employee loginAsEmployee() {
-        return null;
+    public employee loginAsEmployee() throws IOException {
+        System.out.println("Sie wollen sich als normaler Benutzer anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
+        while (true) {
+            String input = reader.readLine();
+
+            if (input.equals("EXIT")) {
+                return null;
+            }
+
+            employee account = employee.getEmployee(input);
+
+            if (account == null) {
+                System.out.println("Ihr Account wurde nicht gefunden. Probieren Sie es nochmals: ");
+                continue;
+            } else {
+                System.out.println("Ihr Account wurde gefunden. Sie sind nun angemeldet.");
+                return account;
+            }
+        }
     }
 
-    public admin loginAsAdmin() {
-        return null;
+    public admin loginAsAdmin() throws IOException {
+        System.out.println("Sie wollen sich als Admin anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
+        while (true) {
+            String input = reader.readLine();
+
+            if (input.equals("EXIT"))
+                return null;
+
+            if (input == "EXIT") {
+                return null;
+            }
+
+            admin account = admin.getAdmin(input);
+
+            if (account == null) {
+                System.out.println("Ihr Account wurde nicht gefunden. Probieren Sie es nochmals: ");
+                continue;
+            }
+
+            System.out.println("Ihr Account wurde gefunden. Bitte geben Sie das Passwort ein:");
+            while (true) {
+                String password = reader.readLine();
+                if (password.equals("EXIT"))
+                    return null;
+
+                if (account.password.equals(password)) {
+                    System.out.println("Das eingegebene Passwort ist korrekt. Sie sind nun angemeldet.");
+                    return account;
+                } else {
+                    System.out.println("Das eingegebene Passwort ist falsch. Versuchen Sie es nochmals:");
+                    continue;
+                }
+            }
+        }
     }
 
     // Create Account:
-    void createAccount() throws IOException {
-        System.out.println("Wollen Sie einen Admin oder Employee Account erstellen?");
-        System.out.println("- 1: Admin\n- 2: Employee");
-        boolean isAdmin = false;
-        int input = inputIndex(reader.readLine(), 1, 2);
-        switch(input) {
-            case 1:
-                isAdmin = true;
-            case 2:
-                isAdmin = false;
-        }
+    void createAccount(boolean isAdmin) throws IOException {
+        System.out.println("Bitte geben Sie Vor- und Nachnamen ein (keine zweiten Vornamen): ");
 
-        System.out.println("Bitte geben Sie ihren Vor- und Nachnamen ein (keine zweiten Vornamen): ");
         String name;
         String password;
 
@@ -107,7 +152,44 @@ public class navigation {
         }
     }
 
-    // Create Ticket:
+    void deleteAccount(boolean isAdmin) throws IOException {
+        System.out.println("Bitte geben Sie den Benutzernamen oder die Benutzer-ID vom Account an, welchen Sie löschen wollen: ");
+
+        while (true)
+        {
+            String input = reader.readLine();
+
+            if (isAdmin) {
+                admin acc = admin.getAdmin(input);
+                if (acc == null) {
+                    System.out.println("Der eingegebene Account wurde nicht gefunen. Bitte probieren Sie es nochmals:");
+                    continue;
+                }
+
+                if (admin.deleteAdminAccount(acc)) {
+                    System.out.print("Der Account wurde erfolgreich gelöscht.");
+                } else {
+                    System.out.println("Beim Löschen vom Account ist ein fehler aufgetreten. Abbruch.");
+                }
+                return;
+            } else {
+                employee acc = employee.getEmployee(input);
+
+                if (employee.getEmployee(input) == null) {
+                    System.out.println("Der eingegebene Account wurde nicht gefunen. Bitte probieren Sie es nochmals:");
+                    continue;
+                }
+
+                if (admin.deleteEmployeeAccount(acc)) {
+                    System.out.print("Der Account wurde erfolgreich gelöscht.");
+                } else {
+                    System.out.println("Beim Löschen vom Account ist ein fehler aufgetreten. Abbruch.");
+                }
+                return;
+            }
+        }
+    }
+
     void createTicket() throws IOException {
         System.out.println("Wie soll Ihr Ticket heissen?");
         String name = reader.readLine();
@@ -118,18 +200,21 @@ public class navigation {
         System.out.println("Was für eine Priorität hat das Ticket?");
         System.out.println("- 1: Low\n- 2: Medium\n- 3: High");
         String priority = "";
-        int input = inputIndex(reader.readLine(), 1, 3);
+        int input = inputIndex(3);
         switch(input) {
             case 1:
                 priority = "Low";
+                break;
             case 2:
                 priority = "Medium";
+                break;
             case 3:
                 priority = "High";
+                break;
         }
 
         System.out.println("Welcher Nutzer ist der Bearbeiter? (id/username)");
-        employee editor = null;
+        employee editor;
         while (true) {
             String user = reader.readLine();
             if (user.equals("EXIT")) return;
