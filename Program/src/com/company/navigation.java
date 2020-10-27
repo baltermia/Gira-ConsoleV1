@@ -92,7 +92,6 @@ public class navigation {
         }
     }
 
-    // Create Account:
     void createAccount(boolean isAdmin) throws IOException {
         System.out.println("Bitte geben Sie Vor- und Nachnamen ein (keine zweiten Vornamen): ");
 
@@ -231,8 +230,8 @@ public class navigation {
         new ticket(name, desc, priority, null, editor);
     }
 
-    // View Ticket:
     void viewTicket() throws IOException {
-
+        System.out.println("Welches Ticket wollen sie anzeigen lassen? (id/name)");
+        String name = reader.readLine();
     }
 }
