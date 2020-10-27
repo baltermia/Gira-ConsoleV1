@@ -1,2 +1,5 @@
 *.class
 *.DS_Store
+out/production/Gira/com/company/employee.class
+out/production/Gira/com/company/gira.class
+out/production/Gira/com/company/navigation.class
