@@ -3,7 +3,6 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.FileSystemLoopException;
 
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -12,15 +11,14 @@ public class navigation {
         boolean hasPassed = false;
         String input;
         int inputNum;
+
         while (true) {
             if (hasPassed)
-                System.out.println("Bitte geben Sie eine Zahl von 1-5 ein.");
+                System.out.println("Bitte geben Sie eine Zahl von 1-" + end +" ein.");
             else
                 hasPassed = true;
 
             input = reader.readLine();
-            if (input.equals("EXIT"))
-                return -1;
 
             if (input.matches("[0-9]+")) {
                 inputNum = Integer.parseInt(input);
@@ -28,7 +26,7 @@ public class navigation {
                 continue;
             }
 
-            for (int i = 0; i < end; i++) {
+            for (int i = 0; i <= end; i++) {
                 if (inputNum == i)
                     return inputNum;
             }
@@ -39,10 +37,6 @@ public class navigation {
         System.out.println("Sie wollen sich als normaler Benutzer anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
         while (true) {
             String input = reader.readLine();
-
-            if (input.equals("EXIT")) {
-                return null;
-            }
 
             employee account = employee.getEmployee(input);
 
@@ -61,13 +55,6 @@ public class navigation {
         while (true) {
             String input = reader.readLine();
 
-            if (input.equals("EXIT"))
-                return null;
-
-            if (input == "EXIT") {
-                return null;
-            }
-
             admin account = admin.getAdmin(input);
 
             if (account == null) {
@@ -78,8 +65,6 @@ public class navigation {
             System.out.println("Ihr Account wurde gefunden. Bitte geben Sie das Passwort ein:");
             while (true) {
                 String password = reader.readLine();
-                if (password.equals("EXIT"))
-                    return null;
 
                 if (account.password.equals(password)) {
                     System.out.println("Das eingegebene Passwort ist korrekt. Sie sind nun angemeldet.");
@@ -100,7 +85,6 @@ public class navigation {
 
         while (true) {
             name = reader.readLine();
-            if (name.equals("EXIT")) return;
 
             if (!name.equals("")) {
                 if (name.contains(" ")) {
@@ -132,7 +116,6 @@ public class navigation {
             System.out.println("Bitte geben Sie ein Passwort ein: ");
 
             password = reader.readLine();
-            if (password.equals("EXIT")) return;
 
             admin account = admin.createAdminAccount(name, password);
 
@@ -216,9 +199,8 @@ public class navigation {
         employee editor;
         while (true) {
             String user = reader.readLine();
-            if (user.equals("EXIT")) return;
             if (employee.getEmployee(user) == null) {
-                System.out.println("Es wurde keine Nutzer mit den Angaben gefunden. Bitte probieren Sie es nochals:");
+                System.out.println("Es wurde kein Nutzer mit den Angaben gefunden. Bitte probieren Sie es nochals:");
                 continue;
             }
             else {
@@ -227,11 +209,113 @@ public class navigation {
                 break;
         }
 
-        new ticket(name, desc, priority, null, editor);
+        new ticket(name, desc, priority, gira.employeeAccount, editor);
     }
 
     void viewTicket() throws IOException {
+        boolean isFinished = false;
         System.out.println("Welches Ticket wollen sie anzeigen lassen? (id/name)");
-        String name = reader.readLine();
+        ticket tckt;
+        while (true) {
+            String id_name = reader.readLine();
+            if (ticket.getTicket(id_name) == null) {
+                System.out.println("Ticket wurde nicht gefunden. Bitte probieren Sie es nochmals:");
+                continue;
+            } else {
+                tckt = ticket.getTicket(id_name);
+                break;
+            }
+        }
+        System.out.println("Das Ticket wurd gefunden. Hier sind die Infos:");
+        System.out.println("- Name: " + tckt.name + "\n- ID: " + tckt.id + "\n- Beschreibung: " + tckt.description + "\n- Reporter: " + tckt.reporter.username + " / " + tckt.reporter.id +
+                "\n- Bearbeiter: " + tckt.editor.username + " / " + tckt.editor.id + "\n- Status: " + (tckt.isSolved ? "Gelöst" : "Ungelöst") + "\n- Priorität: " + tckt.priority);
+
+        while (true) {
+            System.out.println("------------------------------------------------------------------------------");
+            System.out.println("Was möchten Sie tun?");
+            System.out.println("1: - Ticket Bearbeiten\n2: - Ticket abschliessen\n3: - Zurück zur Hauptauswahl");
+            int input = inputIndex(3);
+            switch(input) {
+                case 1:
+                    editTicket(tckt);
+                    break;
+                case 2:
+                    tckt.isSolved = true;
+                    break;
+                case 3:
+                    return;
+            }
+        }
+    }
+
+    void editTicket(ticket tckt) throws IOException{
+        System.out.println("Was möchten Sie änder?");
+        System.out.println("1. - Name\n2: - Beschreibung\n3: - Reporter\n4: - Bearbeiter\n5: - Priorität\n6: - Abbruch");
+        int input = inputIndex(6);
+        switch (input) {
+            case 1:
+                System.out.println("Bitte geben Sie den gewünschten Namen ein:");
+                tckt.name = reader.readLine();
+                System.out.println("Name wurde geändert.");
+                break;
+            case 2:
+                System.out.println("Bitte geben Sie die gewünschte Beschreibung ein:");
+                tckt.description = reader.readLine();
+                System.out.println("Beschreibung wurde geändert.");
+                break;
+            case 3:
+                System.out.println("Welchen Nutzer wollen Sie zum Reporter ändern? (id/username)");
+                employee reporter;
+                while (true) {
+                    String user = reader.readLine();
+                    if (employee.getEmployee(user) == null) {
+                        System.out.println("Es wurde kein Nutzer mit den Angaben gefunden. Bitte probieren Sie es nochals:");
+                        continue;
+                    }
+                    else {
+                        reporter = employee.getEmployee(user);
+                    }
+                    break;
+                }
+                tckt.reporter = reporter;
+                break;
+            case 4:
+                System.out.println("Welchen Nutzer wollen Sie zum Bearbeiter ändern? (id/username)");
+                employee editor;
+                while (true) {
+                    String user = reader.readLine();
+                    if (employee.getEmployee(user) == null) {
+                        System.out.println("Es wurde kein Nutzer mit den Angaben gefunden. Bitte probieren Sie es nochals:");
+                        continue;
+                    }
+                    else {
+                        editor = employee.getEmployee(user);
+                    }
+                    break;
+                }
+                tckt.editor = editor;
+                break;
+            case 5:
+                System.out.println("Auf was wollen Sie die Priorität ändern?");
+                System.out.println("- 1: Low\n- 2: Medium\n- 3: High");
+                String priority = "";
+                int prio = inputIndex(3);
+                switch(prio) {
+                    case 1:
+                        priority = "Low";
+                        break;
+                    case 2:
+                        priority = "Medium";
+                        break;
+                    case 3:
+                        priority = "High";
+                        break;
+                }
+                tckt.priority = priority;
+                System.out.println("Priorität wurde geändert.");
+                break;
+            case 6:
+                break;
+        }
     }
 }

@@ -27,11 +27,15 @@ public class ticket {
         ticketList.add(this);
     }
 
-    public static ticket getTicket(String id) {
-        if (id.matches("[0-9]+")) {
+    public static ticket getTicket(String id_name) {
+        if (id_name.matches("[0-9]+")) {
             for (int i = 0; i < ticketList.size(); i++) {
-                if (Integer.toString(ticketList.get(i).id).equals(id))
+                if (Integer.toString(ticketList.get(i).id).equals(id_name))
                     return ticketList.get(i);
+            }
+        } else {
+            for (int i = 0; i < ticketList.size(); i++) {
+                if (ticketList.get(i).name.equals(id_name)) return ticketList.get(i);
             }
         }
         return null;

@@ -28,7 +28,7 @@ public class gira {
                     adminAccount = nav.loginAsAdmin();
                     accountIsAdmin = true;
                 }
-                else if (inputNum == 3 || inputNum == -1)
+                else if (inputNum == 3)
                 {
                     endProgram = true;
                     break;
@@ -47,16 +47,16 @@ public class gira {
 
             if (accountIsAdmin) {
                 while (true) {
-                    System.out.println("\nWilkommen " + adminAccount.username + ". Sie sind als Admin angemeldet. Bitte wählen Sie eine der folgenden Funktionen aus: (um eine Funktion abzubrechen schreiben Sie jederzeit EXIT");
+                    System.out.println("\nWilkommen " + adminAccount.username + ". Sie sind als Admin angemeldet. Bitte wählen Sie eine der folgenden Funktionen aus: ");
                     System.out.println("- 1: Employee Account erstellen\n- 2: Admin Account erstellen\n- 3: Employee Account löschen\n- 4: Admin Account löschen\n- 5: Abmelden");
 
-                    int inputNum = nav.inputIndex(6);
+                    int inputNum = nav.inputIndex(5);
 
                     if (inputNum == 1) nav.createAccount(false);
                     else if (inputNum == 2) nav.createAccount(true);
                     else if (inputNum == 3) nav.deleteAccount(false);
                     else if (inputNum == 4) nav.deleteAccount(true);
-                    else if (inputNum == 6); //TODO: Balter wenn du break; machsch den gots ni uf dia letscht Zahl wo ahgisch, sondern uf dia Zweitletschti.
+                    else if (inputNum == 5) break;
                 }
             } else {
                 while (true) {
@@ -64,11 +64,6 @@ public class gira {
                     System.out.println("- 1: Ticket erstellen\n- 2: Ticket ansehen\n- 3: Abmelden");
 
                     int inputNum = nav.inputIndex(3);
-
-                    if (inputNum == -1) {
-                        endProgram = true;
-                        break;
-                    }
 
                     if (inputNum == 1) nav.createTicket();
                     else if (inputNum == 2) nav.viewTicket();
