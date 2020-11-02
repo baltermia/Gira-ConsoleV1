@@ -8,9 +8,9 @@ import java.util.List;
 public class admin {
     public List<admin> adminList = new ArrayList<>();
 
-    int id;
-    String username;
-    String password;
+    public int id;
+    public String username;
+    public String password;
 
     /**
      * Constructor

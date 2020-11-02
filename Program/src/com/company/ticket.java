@@ -9,13 +9,13 @@ import java.util.List;
 public class ticket {
     public List<ticket> ticketList = new ArrayList<>();
 
-    int id;
-    String name;
-    String description;
-    String priority;
-    boolean isSolved;
-    employee editor;
-    employee reporter;
+    public int id;
+    public String name;
+    public String description;
+    public String priority;
+    public boolean isSolved;
+    public employee editor;
+    public employee reporter;
 
     /**
      * Constructor.

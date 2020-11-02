@@ -16,7 +16,7 @@ public class navigation {
      * @return
      * @throws IOException
      */
-    int inputIndex(int end) throws IOException {
+    public int inputIndex(int end) throws IOException {
         boolean hasPassed = false;
         String input;
         int inputNum;
@@ -101,7 +101,7 @@ public class navigation {
      * @param isAdmin
      * @throws IOException
      */
-    void createAccount(boolean isAdmin) throws IOException {
+    public void createAccount(boolean isAdmin) throws IOException {
         System.out.println("Bitte geben Sie Vor- und Nachnamen ein (keine zweiten Vornamen): ");
 
         String name;
@@ -163,7 +163,7 @@ public class navigation {
      * @param isAdmin
      * @throws IOException
      */
-    void deleteAccount(boolean isAdmin) throws IOException {
+    public void deleteAccount(boolean isAdmin) throws IOException {
         System.out.println("Bitte geben Sie den Benutzernamen oder die Benutzer-ID vom Account an, welchen Sie löschen wollen: ");
 
         while (true)
@@ -205,7 +205,7 @@ public class navigation {
      * Methode erstellt Ticket
      * @throws IOException
      */
-    void createTicket() throws IOException {
+    public void createTicket() throws IOException {
         System.out.println("Wie soll Ihr Ticket heissen?");
         String name = reader.readLine();
 
@@ -249,7 +249,7 @@ public class navigation {
      * Methode zeigt Ticket-Infos an und fragt ob der Nutzer das Ticket bearbeiter oder abschliessen will.
      * @throws IOException
      */
-    void viewTicket() throws IOException {
+    public void viewTicket() throws IOException {
         System.out.println("Welches Ticket wollen sie anzeigen lassen? (id/name)");
         ticket tckt;
         while (true) {
@@ -289,7 +289,7 @@ public class navigation {
      * @param tckt
      * @throws IOException
      */
-    void editTicket(ticket tckt) throws IOException{
+    public void editTicket(ticket tckt) throws IOException{
         System.out.println("Was möchten Sie änder?");
         System.out.println("1. - Name\n2: - Beschreibung\n3: - Reporter\n4: - Bearbeiter\n5: - Priorität\n6: - Abbruch");
         int input = inputIndex(6);

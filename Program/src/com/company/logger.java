@@ -8,7 +8,7 @@ import java.nio.file.Paths;
  * Mit der Logger Klasse kann man Loggen.
  */
 public class logger {
-    String filePath;
+    private String filePath;
 
     /**
      * Constructor

@@ -9,8 +9,8 @@ import java.util.List;
 public class employee {
     public List<employee> employeeList = new ArrayList<>();
 
-    int id;
-    String username;
+    public int id;
+    public String username;
 
     /**
      * Constructor
