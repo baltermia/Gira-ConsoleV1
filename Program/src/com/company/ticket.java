@@ -27,7 +27,7 @@ public class ticket {
         ticketList.add(this);
     }
 
-    public static ticket getTicket(String id_name) {
+    public ticket getTicket(String id_name) {
         if (id_name.matches("[0-9]+")) {
             for (int i = 0; i < ticketList.size(); i++) {
                 if (Integer.toString(ticketList.get(i).id).equals(id_name))

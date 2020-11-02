@@ -15,7 +15,7 @@ public class employee {
         employeeList.add(this);
     }
 
-    public static employee getEmployee(String id_username) {
+    public employee getEmployee(String id_username) {
         if (id_username.matches("[0-9]+")) {
             for (int i = 0; i < employeeList.size(); i++) {
                 if (Integer.toString(employeeList.get(i).id).equals(id_username))

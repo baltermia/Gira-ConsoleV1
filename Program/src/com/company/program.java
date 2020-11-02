@@ -5,10 +5,12 @@ public class program {
     public employee employeeAccount = null;
     public admin adminAccount = null;
 
+    public admin rootAdmin = new admin("admin", "root");
+    public employee mainEmployee = new employee("standard user");
+    public ticket startupTicket = new ticket("Gira", "Wilkommen bei Gira", "-", mainEmployee, mainEmployee);
+
     public void run() {
         try {
-            new admin("admin", "root");
-
             navigation nav = new navigation();
             boolean endProgram = false;
 

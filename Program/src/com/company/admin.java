@@ -16,16 +16,16 @@ public class admin {
         adminList.add(this);
     }
 
-    public static employee createEmployeeAccount(String name) {
+    public employee createEmployeeAccount(String name) {
 
         return new employee(getNewUsername(name, false));
     }
 
-    public static admin createAdminAccount(String name, String password) {
+    public admin createAdminAccount(String name, String password) {
         return new admin (getNewUsername(name, true), password);
     }
 
-    public static boolean deleteEmployeeAccount(employee acc) {
+    public boolean deleteEmployeeAccount(employee acc) {
         for (int i = 0; i < employee.employeeList.size(); i++) {
             if (employee.employeeList.get(i).equals(acc))
             {
@@ -36,7 +36,7 @@ public class admin {
         return false;
     }
 
-    public static boolean deleteAdminAccount(admin acc) {
+    public boolean deleteAdminAccount(admin acc) {
         for (int i = 0; i < employee.employeeList.size(); i++) {
             if (admin.adminList.get(i).equals(acc))
             {
@@ -46,11 +46,11 @@ public class admin {
         }
         return false;    }
 
-    private static String getNewUsername(String name, boolean isAdmin) {
+    private String getNewUsername(String name, boolean isAdmin) {
         String username = (name.substring(0, 3) + name.split(" ")[1].substring(0, 3)).toLowerCase();
 
         while (true) {
-            if ((isAdmin == false ? employee.getEmployee(username) : getAdmin(username)) != null) {
+            if ((isAdmin == false ? gira.girObj.proObj.mainEmployee.getEmployee(username) : getAdmin(username)) != null) {
                 if (username.length() > 6) {
                     int strLenth = username.length();
                     while (strLenth > 0 && Character.isDigit(username.charAt(strLenth - 1))) {
@@ -70,7 +70,7 @@ public class admin {
         return username;
     }
 
-    public static admin getAdmin(String id_username) {
+    public admin getAdmin(String id_username) {
         if (id_username.matches("[0-9]+")) {
             for (int i = 0; i < adminList.size(); i++) {
                 if (Integer.toString(adminList.get(i).id).equals(id_username))
