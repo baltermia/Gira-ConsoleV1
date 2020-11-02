@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.IOException;
+
 /**
  * Ersetzt gira.java, da sonst statisch.
  */
@@ -82,11 +84,17 @@ public class program {
                     }
                 }
             }
-
+            gira.girObj.proObj.logger.log("Programm wurde beendet");
             System.out.println("Programm wurde beendet. Danke dass Sie Gira nutzen.");
         }
         catch(Exception ex)  {
             System.out.println("Es gab einen unbekannten Fehler. Program wird beendet.");
+            try {
+                gira.girObj.proObj.logger.log(ex.getMessage());
+            }
+            catch (Exception e) {
+                System.out.println("Fehlermeldung Konnte nicht in die Log-Datei geschrieben werden. Ausgabe in der Konsole:\n" + e.getMessage());
+            }
         }
     }
 }
