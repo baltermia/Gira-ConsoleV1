@@ -27,8 +27,6 @@ public class ticket {
 
         if (!priority.equals("-")) {
             gira.girObj.proObj.startupTicket.ticketList.add(this);
-        } else {
-            this.ticketList.add(this);
         }
     }
 
