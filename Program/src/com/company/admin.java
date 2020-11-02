@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class admin {
-    public static List<admin> adminList = new ArrayList<>();
+    public List<admin> adminList = new ArrayList<>();
 
     int id;
     String username;
@@ -13,7 +13,7 @@ public class admin {
         id = adminList.size();
         this.username = username;
         this.password = password;
-        adminList.add(this);
+        gira.girObj.proObj.adminAccount.adminList.add(this);
     }
 
     public employee createEmployeeAccount(String name) {
@@ -38,9 +38,9 @@ public class admin {
 
     public boolean deleteAdminAccount(admin acc) {
         for (int i = 0; i < employee.employeeList.size(); i++) {
-            if (admin.adminList.get(i).equals(acc))
+            if (gira.girObj.proObj.adminAccount.adminList.get(i).equals(acc))
             {
-                admin.adminList.remove(i);
+                gira.girObj.proObj.adminAccount.adminList.remove(i);
                 return true;
             }
         }

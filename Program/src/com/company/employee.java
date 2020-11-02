@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employee {
-    public static List<employee> employeeList = new ArrayList<>();
+    public List<employee> employeeList = new ArrayList<>();
 
     int id;
     String username;
@@ -12,7 +12,7 @@ public class employee {
     public employee(String username) {
         id = employeeList.size();
         this.username = username;
-        employeeList.add(this);
+        gira.girObj.proObj.mainEmployee.employeeList.add(this);
     }
 
     public employee getEmployee(String id_username) {

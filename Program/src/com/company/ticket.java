@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class ticket {
-    public static List<ticket> ticketList = new ArrayList<>();
+    public List<ticket> ticketList = new ArrayList<>();
 
     int id;
     String name;
@@ -24,7 +24,7 @@ public class ticket {
         isSolved = false;
         this.reporter = reporter;
         this.editor = editor;
-        ticketList.add(this);
+        gira.girObj.proObj.startupTicket.ticketList.add(this);
     }
 
     public ticket getTicket(String id_name) {
