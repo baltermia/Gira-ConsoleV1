@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93b6c714-d474-4cdd-b6cb-4b803c4c2d63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/admin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -80,7 +81,7 @@
       <workItem from="1603728247085" duration="3944000" />
       <workItem from="1603732246656" duration="47000" />
       <workItem from="1603732338995" duration="2395000" />
-      <workItem from="1604304806536" duration="1993000" />
+      <workItem from="1604304806536" duration="2282000" />
     </task>
     <servers />
   </component>

@@ -26,10 +26,10 @@ public class admin {
     }
 
     public boolean deleteEmployeeAccount(employee acc) {
-        for (int i = 0; i < employee.employeeList.size(); i++) {
-            if (employee.employeeList.get(i).equals(acc))
+        for (int i = 0; i < gira.girObj.proObj.employeeAccount.employeeList.size(); i++) {
+            if (gira.girObj.proObj.employeeAccount.employeeList.get(i).equals(acc))
             {
-                employee.employeeList.remove(i);
+                gira.girObj.proObj.employeeAccount.employeeList.remove(i);
                 return true;
             }
         }
@@ -37,7 +37,7 @@ public class admin {
     }
 
     public boolean deleteAdminAccount(admin acc) {
-        for (int i = 0; i < employee.employeeList.size(); i++) {
+        for (int i = 0; i < gira.girObj.proObj.employeeAccount.employeeList.size(); i++) {
             if (gira.girObj.proObj.adminAccount.adminList.get(i).equals(acc))
             {
                 gira.girObj.proObj.adminAccount.adminList.remove(i);
