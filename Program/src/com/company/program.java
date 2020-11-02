@@ -1,5 +1,10 @@
 package com.company;
 
+import java.io.IOException;
+
+/**
+ * Ersetzt gira.java, da sonst statisch.
+ */
 public class program {
     public boolean accountIsAdmin = false;
     public employee employeeAccount = null;
@@ -9,10 +14,9 @@ public class program {
     public employee mainEmployee = new employee("standardUser");
     public ticket startupTicket = new ticket("Gira", "Wilkommen bei Gira", "-", mainEmployee, mainEmployee);
     public logger logger = new logger(new logger("").getFilePath());
-
-    public program() throws myexception {
-    }
-
+    /**
+     * Ersetzt die Main Methode von gira, da sonsts statisch
+     */
     public void run() {
         try {
             gira.girObj.proObj.logger.log("Programm gestartet.");
@@ -79,11 +83,17 @@ public class program {
                     }
                 }
             }
-
+            gira.girObj.proObj.logger.log("Programm wurde beendet");
             System.out.println("Programm wurde beendet. Danke dass Sie Gira nutzen.");
         }
         catch(Exception ex)  {
             System.out.println("Es gab einen unbekannten Fehler. Program wird beendet.");
+            try {
+                gira.girObj.proObj.logger.log(ex.getMessage());
+            }
+            catch (Exception e) {
+                System.out.println("Fehlermeldung Konnte nicht in die Log-Datei geschrieben werden. Ausgabe in der Konsole:\n" + e.getMessage());
+            }
         }
     }
 }

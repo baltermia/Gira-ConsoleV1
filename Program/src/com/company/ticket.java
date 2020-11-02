@@ -3,19 +3,28 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Die ticket Klasse beinhaltet Tickets.
+ */
 public class ticket {
     public List<ticket> ticketList = new ArrayList<>();
 
-    int id;
-    String name;
-    String description;
-    String priority;
-    boolean isSolved;
-    employee editor;
-    employee reporter;
+    public int id;
+    public String name;
+    public String description;
+    public String priority;
+    public boolean isSolved;
+    public employee editor;
+    public employee reporter;
 
-
+    /**
+     * Constructor.
+     * @param name
+     * @param description
+     * @param priority
+     * @param reporter
+     * @param editor
+     */
     public ticket(String name, String description, String priority, employee reporter, employee editor) {
         id = ticketList.size();
         this.name = name;
@@ -30,6 +39,11 @@ public class ticket {
         }
     }
 
+    /**
+     * Man kann einen Namen oder die ID von einem Ticket mitgeben und bekommt das ticket in einem objekt zurück (falls es gefunden wurde).
+     * @param id_name
+     * @return
+     */
     public ticket getTicket(String id_name) {
         if (id_name.matches("[0-9]+")) {
             for (int i = 0; i < ticketList.size(); i++) {

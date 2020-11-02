@@ -4,10 +4,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * In der Navigation Klasse wird der Hauptteil vom Input/Output getätigt.
+ */
 public class navigation {
     public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    int inputIndex(int end) throws IOException {
+    /**
+     * Man kann eine End-Nummer mitgeben und die Method fragt den Nutzer welche Zahl er im gewünschten Raum wählen will.
+     * @param end
+     * @return
+     * @throws IOException
+     */
+    public int inputIndex(int end) throws IOException {
         boolean hasPassed = false;
         String input;
         int inputNum;
@@ -33,6 +42,11 @@ public class navigation {
         }
     }
 
+    /**
+     * Methode meldet Nutzer als Employee an
+     * @return
+     * @throws IOException
+     */
     public employee loginAsEmployee() throws IOException {
         System.out.println("Sie wollen sich als normaler Benutzer anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
         while (true) {
@@ -50,6 +64,11 @@ public class navigation {
         }
     }
 
+    /**
+     *  Methode meldet Nutzer als Admin an
+     * @return
+     * @throws IOException
+     */
     public admin loginAsAdmin() throws IOException {
         System.out.println("Sie wollen sich als Admin anmelden. Bitte geben Sie Ihren Benutzernamen oder Ihre Benutzer-ID ein:");
         while (true) {
@@ -77,7 +96,12 @@ public class navigation {
         }
     }
 
-    void createAccount(boolean isAdmin) throws IOException {
+    /**
+     * Methode erstellt Account (mit der variable isAdmin kann man zwischen Employee und Admin account entscheiden)
+     * @param isAdmin
+     * @throws IOException
+     */
+    public void createAccount(boolean isAdmin) throws IOException {
         System.out.println("Bitte geben Sie Vor- und Nachnamen ein (keine zweiten Vornamen): ");
 
         String name;
@@ -134,7 +158,12 @@ public class navigation {
         }
     }
 
-    void deleteAccount(boolean isAdmin) throws IOException {
+    /**
+     * Methode löscht Account (mit der variable isAdmin kann man zwischen Employee und Admin account entscheiden)
+     * @param isAdmin
+     * @throws IOException
+     */
+    public void deleteAccount(boolean isAdmin) throws IOException {
         System.out.println("Bitte geben Sie den Benutzernamen oder die Benutzer-ID vom Account an, welchen Sie löschen wollen: ");
 
         while (true)
@@ -172,7 +201,11 @@ public class navigation {
         }
     }
 
-    void createTicket() throws IOException {
+    /**
+     * Methode erstellt Ticket
+     * @throws IOException
+     */
+    public void createTicket() throws IOException {
         System.out.println("Wie soll Ihr Ticket heissen?");
         String name = reader.readLine();
 
@@ -212,8 +245,11 @@ public class navigation {
         new ticket(name, desc, priority, gira.girObj.proObj.employeeAccount, editor);
     }
 
-    void viewTicket() throws IOException {
-        boolean isFinished = false;
+    /**
+     * Methode zeigt Ticket-Infos an und fragt ob der Nutzer das Ticket bearbeiter oder abschliessen will.
+     * @throws IOException
+     */
+    public void viewTicket() throws IOException {
         System.out.println("Welches Ticket wollen sie anzeigen lassen? (id/name)");
         ticket tckt;
         while (true) {
@@ -248,7 +284,12 @@ public class navigation {
         }
     }
 
-    void editTicket(ticket tckt) throws IOException{
+    /**
+     *
+     * @param tckt
+     * @throws IOException
+     */
+    public void editTicket(ticket tckt) throws IOException{
         System.out.println("Was möchten Sie änder?");
         System.out.println("1. - Name\n2: - Beschreibung\n3: - Reporter\n4: - Bearbeiter\n5: - Priorität\n6: - Abbruch");
         int input = inputIndex(6);
