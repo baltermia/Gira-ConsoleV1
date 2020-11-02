@@ -1,27 +1,26 @@
 package com.company;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class program {
     public boolean accountIsAdmin = false;
     public employee employeeAccount = null;
     public admin adminAccount = null;
 
     public admin rootAdmin = new admin("admin", "root");
-    public employee mainEmployee = new employee("standard user");
+    public employee mainEmployee = new employee("standardUser");
     public ticket startupTicket = new ticket("Gira", "Wilkommen bei Gira", "-", mainEmployee, mainEmployee);
+    public logger logger = new logger(new logger("").getFilePath());
 
     public void run() {
         try {
+            gira.girObj.proObj.logger.log("Programm gestartet.");
+
             navigation nav = new navigation();
             boolean endProgram = false;
 
             while (!endProgram) {
                 while (true) {
-                    String start = "Wilkommen in Gira. Bitte melden Sie sich an.";
-                    System.out.println(start);
-                    Files.write(Paths.get("log.txt"), start.getBytes());
+
+                    System.out.println("Wilkommen in Gira. Bitte melden Sie sich an.");
                     System.out.println("- 1: Employee Login\n- 2: Admin Login\n- 3: Beenden");
 
                     int inputNum = nav.inputIndex(3);

@@ -24,7 +24,12 @@ public class ticket {
         isSolved = false;
         this.reporter = reporter;
         this.editor = editor;
-        gira.girObj.proObj.startupTicket.ticketList.add(this);
+
+        if (!priority.equals("-")) {
+            gira.girObj.proObj.startupTicket.ticketList.add(this);
+        } else {
+            this.ticketList.add(this);
+        }
     }
 
     public ticket getTicket(String id_name) {

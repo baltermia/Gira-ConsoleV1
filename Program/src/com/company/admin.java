@@ -13,7 +13,12 @@ public class admin {
         id = adminList.size();
         this.username = username;
         this.password = password;
-        gira.girObj.proObj.adminAccount.adminList.add(this);
+
+        if (!username.equals("admin")) {
+            gira.girObj.proObj.rootAdmin.adminList.add(this);
+        } else {
+            this.adminList.add(this);
+        }
     }
 
     public employee createEmployeeAccount(String name) {

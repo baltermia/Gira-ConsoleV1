@@ -12,7 +12,13 @@ public class employee {
     public employee(String username) {
         id = employeeList.size();
         this.username = username;
-        gira.girObj.proObj.mainEmployee.employeeList.add(this);
+
+        if (!username.equals("standardUser")) {
+            gira.girObj.proObj.mainEmployee.employeeList.add(this);
+        }
+        else {
+            this.employeeList.add(this);
+        }
     }
 
     public employee getEmployee(String id_username) {
