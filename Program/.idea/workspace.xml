@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93b6c714-d474-4cdd-b6cb-4b803c4c2d63" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Program/com/company/gira.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Program/com/company/gira.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Program/com/company/navigation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Program/com/company/navigation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/gira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gira.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/navigation.java" afterDir="false" />
     </list>
@@ -13,6 +11,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -78,6 +83,7 @@
       <workItem from="1603728247085" duration="3944000" />
       <workItem from="1603732246656" duration="47000" />
       <workItem from="1603732338995" duration="2395000" />
+      <workItem from="1604304806536" duration="1023000" />
     </task>
     <servers />
   </component>

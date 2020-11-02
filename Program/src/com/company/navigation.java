@@ -209,7 +209,7 @@ public class navigation {
                 break;
         }
 
-        new ticket(name, desc, priority, gira.employeeAccount, editor);
+        new ticket(name, desc, priority, gira.girObj.proObj.employeeAccount, editor);
     }
 
     void viewTicket() throws IOException {
