@@ -24,7 +24,8 @@ public class logger {
      * @throws IOException
      */
     public void log (String text) throws IOException {
-        Files.write(Paths.get(filePath), text.getBytes());
+        text = Files.readString(Paths.get(filePath))  + "\n" + text;
+                Files.write(Paths.get(filePath), text.getBytes());
     }
 
     /**

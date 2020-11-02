@@ -1,1 +1,1 @@
-C:\Users\clopathba\Documents\GitHub\Gira\Program\log.log
+log.log
