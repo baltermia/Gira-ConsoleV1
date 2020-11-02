@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ * Ersetzt gira.java, da sonst statisch.
+ */
 public class program {
     public boolean accountIsAdmin = false;
     public employee employeeAccount = null;
@@ -10,6 +13,9 @@ public class program {
     public ticket startupTicket = new ticket("Gira", "Wilkommen bei Gira", "-", mainEmployee, mainEmployee);
     public logger logger = new logger(new logger("").getFilePath());
 
+    /**
+     * Ersetzt die Main Methode von gira, da sonsts statisch
+     */
     public void run() {
         try {
             gira.girObj.proObj.logger.log("Programm gestartet.");
