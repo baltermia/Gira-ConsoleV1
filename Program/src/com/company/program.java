@@ -10,6 +10,9 @@ public class program {
     public ticket startupTicket = new ticket("Gira", "Wilkommen bei Gira", "-", mainEmployee, mainEmployee);
     public logger logger = new logger(new logger("").getFilePath());
 
+    public program() throws myexception {
+    }
+
     public void run() {
         try {
             gira.girObj.proObj.logger.log("Programm gestartet.");
